@@ -9,15 +9,21 @@ namespace AssLinQ3
 {
     internal class CustomComperer : IEqualityComparer<string>
     {
-        public bool Equals(string? x, string? y)
+        
+        private string GetSortedWord(string word)
         {
-            throw new NotImplementedException();
+            return new string(word.Trim().OrderBy(c => c).ToArray());
         }
 
-        public int GetHashCode([DisallowNull] string obj)
+        public bool Equals(string x, string y)
         {
-            throw new NotImplementedException();
+            return GetSortedWord(x) == GetSortedWord(y);
+        }
+
+        public int GetHashCode(string obj)
+        {
+            return GetSortedWord(obj).GetHashCode();
         }
     }
 }
-}
+

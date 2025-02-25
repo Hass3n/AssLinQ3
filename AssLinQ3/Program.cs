@@ -13,8 +13,9 @@ namespace AssLinQ3
         static void Main(string[] args)
         {
 
-
           
+
+
 
             /******************************************Task**************************/
 
@@ -294,7 +295,15 @@ namespace AssLinQ3
             #endregion
 
 
-          
+            #region 3.	Consider this Array as an Input
+            String[] Arr = { "from", "salt", "earn", " last", "near", "form" };
+
+
+            var Result = Arr.GroupBy(p => p, new CustomComperer()).Select(w => new { key = w.Key ,word=w.ToList() });
+
+           
+            #endregion
+
 
             #endregion
 
